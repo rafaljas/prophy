@@ -99,7 +99,8 @@ def make_struct_members(elem, dynamic_array = False):
     members = []
     ename = elem.get("name")
     etype = elem.get("type")
-    optional = bool(elem.get("optional"))
+    optional = elem.get("optional")
+    optional = bool(optional) and optional.lower() == "true"
     dimension = elem.find("dimension")
     if dimension is not None:
         size = dimension.get("size", None)
